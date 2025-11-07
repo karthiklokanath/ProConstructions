@@ -1,0 +1,136 @@
+.footer {
+  background-color: #000000;
+  padding: 60px 0 30px;
+  color: #ffffff;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #333333;
+  margin-bottom: 30px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #666666;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  border-color: #c19d5f;
+  background-color: #c19d5f;
+}
+
+.social-icon {
+  font-size: 16px;
+  font-style: normal;
+  color: #ffffff;
+}
+
+.footer-cta {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-button {
+  padding: 15px 40px;
+  background-color: transparent;
+  border: 2px solid #c19d5f;
+  color: #c19d5f;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: #c19d5f;
+  color: #000000;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.footer-phone {
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+.footer-email {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #c19d5f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-email:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  text-align: center;
+}
+
+.footer-copyright {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #666666;
+  margin: 0;
+}
+
+.footer-copyright a {
+  color: #999999;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-copyright a:hover {
+  color: #c19d5f;
+}
+
+@media (max-width: 968px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-info {
+    align-items: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}

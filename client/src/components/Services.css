@@ -1,0 +1,49 @@
+.services {
+  display: block;
+}
+
+.services-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-strip {
+  position: relative;
+  height: 370px;
+  background-size: cover;
+  background-position: center;
+  display: block;
+}
+
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.6));
+}
+
+.service-strip-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-strip-title {
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(0,0,0,0.0);
+}
+
+@media (min-width: 992px) {
+  .service-strip { height: 370px; }
+  .service-strip-title { font-size: 14px; }
+}
+
+@media (max-width: 768px) {
+  .service-strip { height: 370px; }
+  .service-strip-title { font-size: 12px; }
+}

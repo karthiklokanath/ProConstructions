@@ -1,0 +1,79 @@
+.flow-nav {
+  /* occupies space in the document flow */
+  width: 100%;
+  display: block;
+}
+
+.flow-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background moved to .flow-nav-inner so it spans the full viewport width */
+  /* Removed backdrop-filter to reduce repaint flicker on scroll */
+  transition: background-color 200ms ease, box-shadow 200ms ease;
+}
+
+.fn-logo {
+  display: flex;
+  flex-direction: column;
+}
+.fn-logo-text { color: #fff; font-weight:700; letter-spacing:2px; }
+.fn-logo-sub { color: rgba(255,255,255,0.7); font-size:11px; }
+
+.fn-list { display:flex; gap:32px; list-style:none; margin:0; padding:0; }
+.fn-list a { color: #fff; text-decoration:none; font-weight:500; letter-spacing:1px; }
+
+@media (max-width: 768px) {
+  .flow-nav-container { padding: 12px 20px; }
+  .fn-list { gap: 12px; overflow-x:auto; }
+}
+
+/* When the flow-nav is stuck at top we slightly darken it for contrast */
+/* When we mark the flow-nav as 'stuck' we switch the inner to fixed positioning
+   so it remains pinned to the viewport top regardless of parent scroll context.
+   A height placeholder is applied to the root element by the component to
+   prevent layout jumps when switching to fixed. */
+.flow-nav-inner {
+  /* Use native sticky positioning so the element naturally sticks at top
+     when it reaches it; this avoids JS-driven jumps. */
+  position: sticky;
+  top: 0;
+  z-index: 1300;
+  transition: background-color 200ms ease, box-shadow 200ms ease, height 200ms ease;
+  /* full-width dark translucent background behind the centered container */
+  background-color: rgba(18,18,18,0.6);
+  box-sizing: border-box;
+}
+
+.flow-nav-container {
+  /* ensure the sticky element paints well */
+  will-change: transform;
+}
+
+/* When JS marks it 'held' we switch to fixed to ensure it remains pinned
+   even if the parent context would otherwise change — placeholder height
+   is applied by JS to the root element to avoid jumps. */
+.flow-nav-inner.held {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1400;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  height: auto; /* Ensure consistent height when held */
+}
+
+.flow-nav-inner.held .flow-nav-container {
+  /* keep the inner container transparent so the full-width background shows */
+  background-color: transparent;
+}
+
+.flow-nav-inner.held {
+  /* dark full-width background when held */
+  background-color: rgba(12,12,12,0.98);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}

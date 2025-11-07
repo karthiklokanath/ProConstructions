@@ -1,0 +1,96 @@
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(0);
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), opacity 180ms ease;
+  will-change: transform, opacity;
+  z-index: 1200;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.bottom-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(20,20,20,0.96);
+  border-top: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 -6px 18px rgba(0,0,0,0.45);
+}
+
+.bn-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bn-logo-text {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 16px;
+}
+
+.bn-logo-sub {
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.bn-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.bn-nav a {
+  color: #e8e8e8;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 6px 0;
+}
+
+.bn-nav a:hover {
+  color: var(--primary-color, #c19d5f);
+}
+
+@media (max-width: 768px) {
+  .bottom-nav-container {
+    padding: 12px 20px;
+  }
+  .bn-nav ul {
+    gap: 14px;
+    overflow-x: auto;
+  }
+}
+
+/* When the nav should stick to the top (user scrolled to the very top)
+   we switch it from bottom-fixed to top-fixed and keep it visible. */
+.bottom-nav.stuck {
+  top: 0;
+  bottom: auto;
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* Small visual tweak when stuck: slightly darker background to read over hero */
+.bottom-nav.stuck .bottom-nav-container {
+  background-color: rgba(10,10,10,0.98);
+}
+
+/* When the in-flow nav is visible, hide the bottom fixed nav so the flow nav
+   can take visual precedence and scroll into place. FlowNav toggles the
+   `flow-in-view` class on the body when it intersects the viewport. */
+body.flow-in-view .bottom-nav {
+  transform: translateY(110%);
+  pointer-events: none;
+  opacity: 0;
+}
