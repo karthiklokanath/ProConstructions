@@ -15,6 +15,23 @@
   display: block;
 }
 
+/* ARCHITECTURE specific: inner wide image that will translate horizontally */
+.service-strip.arch {
+  overflow: hidden;
+}
+
+.arch-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 150vw; /* make the inner wider so horizontal translate reveals different crop */
+  background-size: cover;
+  background-position: center left;
+  transition: transform 80ms linear;
+  will-change: transform;
+}
+
 .service-overlay {
   position: absolute;
   inset: 0;
@@ -44,6 +61,16 @@
 }
 
 @media (max-width: 768px) {
-  .service-strip { height: 370px; }
+  .service-strip { height: 240px; }
+  .arch-inner { width: 200%; }
   .service-strip-title { font-size: 12px; }
+}
+
+/* Adjustments for alternating scroll directions */
+.service-strip:nth-child(odd) .arch-inner {
+  background-position: center left;
+}
+
+.service-strip:nth-child(even) .arch-inner {
+  background-position: center right;
 }
