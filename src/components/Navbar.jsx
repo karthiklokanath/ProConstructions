@@ -4,6 +4,13 @@ import logo from '../Images/logo.png';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [theme, setTheme] = useState(() => {
+        try {
+            return localStorage.getItem('theme') || 'light';
+        } catch (e) {
+            return 'light';
+        }
+    });
     const location = useLocation();
 
     useEffect(() => {
@@ -19,21 +26,35 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Apply theme class and persist preference
+    useEffect(() => {
+        try {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            localStorage.setItem('theme', theme);
+        } catch (e) {
+            // ignore (e.g., SSR or privacy settings)
+        }
+    }, [theme]);
+
     const navStyle = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '0 40px',
         height: '90px',
-        backgroundColor: isScrolled ? 'rgba(37, 37, 37, 0.95)' : 'transparent',
-        color: 'white',
+        backgroundColor: isScrolled ? 'var(--nav-bg)' : 'transparent',
+        color: 'var(--color-text-primary)',
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         zIndex: 1000,
         transition: 'background-color 0.4s ease, height 0.4s ease',
-        borderBottom: isScrolled ? '1px solid #333' : 'none'
+        borderBottom: isScrolled ? '1px solid var(--color-border)' : 'none'
     };
 
     const logoStyle = {
@@ -41,7 +62,7 @@ const Navbar = () => {
         fontWeight: '700',
         letterSpacing: '2px',
         textTransform: 'uppercase',
-        color: '#ffffff',
+        color: isScrolled ? 'var(--color-text-primary)' : 'rgba(255,255,255,0.92)',
         display: 'flex',
         alignItems: 'center',
         height: '100%'
@@ -59,7 +80,7 @@ const Navbar = () => {
         fontWeight: '500',
         textTransform: 'uppercase',
         letterSpacing: '1px',
-        color: isScrolled ? '#e0e0e0' : 'rgba(255,255,255,0.85)',
+        color: isScrolled ? 'var(--color-text-primary)' : 'rgba(255,255,255,0.92)',
         position: 'relative',
         transition: 'color 0.3s'
     };
@@ -81,6 +102,25 @@ const Navbar = () => {
                 <Link to="/our-work" style={linkStyle}>Our Work</Link>
                 <Link to="/news" style={linkStyle}>News</Link>
                 <Link to="/contact" style={linkStyle}>Contact</Link>
+                <button
+                    onClick={() => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))}
+                    aria-label="Toggle theme"
+                    title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                    style={{
+                        marginLeft: '20px',
+                        padding: '8px 10px',
+                        background: 'transparent',
+                        border: isScrolled ? '1px solid var(--color-border)' : '1px solid rgba(255,255,255,0.6)',
+                        color: isScrolled ? 'var(--color-text-primary)' : 'rgba(255,255,255,0.92)',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px'
+                    }}
+                >
+                    {theme === 'dark' ? '☀️' : '🌙'}
+                </button>
             </div>
         </nav>
     );

@@ -273,40 +273,52 @@ const Home = () => {
                 <h1 style={headingStyle}>PRO CONSTRUCTIONS</h1>
             </section>
 
-            {/* Intro Section */}
-            <section style={introSectionStyle}>
-                <div style={containerStyle}>
+            {/* Intro section removed — content moved into the feature columns */}
 
-                    <h2 style={sectionTitleStyle}>BUILD WITH PRO</h2>
-                    <div style={dividerStyle}></div>
-                    <div style={{ maxWidth: '100%', margin: '0 auto', fontSize: '18px', color: '#999', textAlign: 'justify', lineHeight: '1.8' }}>
-                        <p style={{ fontWeight: '600', color: 'white', marginBottom: '20px', textAlign: 'center', fontSize: '22px' }}>
-                            Welcome to Pro Construction – Where vision meets precision.
-                        </p>
-                        <p style={{ marginBottom: '25px', textAlign: 'justify' }}>
-                            At Pro Construction, we don’t just build structures—we craft legacies. With years of expertise, cutting-edge innovation, and unwavering dedication, we transform blueprints into landmarks that stand the test of time. From sleek commercial spaces to dream homes, our team delivers quality, safety, and Pro-level craftsmanship in every project.
-                        </p>
+            {/* Feature three-column section updated to BUILD WITH PRO content */}
+            <section className="feature-section">
+                <div className="container">
+                    <div className="feature-grid">
+                        <div className="feature-col feature-col-left">
+                            <h2 className="feature-title">BUILD WITH PRO's</h2>
+                            <div className="feature-divider"></div>
 
-                        <div style={{ margin: '30px 0', textAlign: 'center' }}>
-                            <p style={{ fontWeight: '600', color: 'white', marginBottom: '15px', fontSize: '20px' }}>Why choose us?</p>
-                            <ul style={{ listStyle: 'none', padding: 0, display: 'inline-block', textAlign: 'left' }}>
-                                <li style={{ marginBottom: '10px' }}>✅ <strong style={{ color: 'white' }}>Pro Expertise:</strong> Licensed professionals committed to excellence.</li>
-                                <li>✅ <strong style={{ color: 'white' }}>End-to-End Solutions:</strong> Design, build, renovate—seamlessly.</li>
-                            </ul>
+                            <p style={{ fontWeight: 600, fontSize: '20px', color: 'var(--color-text-primary)', marginBottom: '16px' }}>
+                                Welcome to Pro Construction – <span style={{ fontSize: '19px', fontStyle: 'italic' }}>Where vision meets precision.</span>
+                            </p>
+
+                            <p style={{ color: 'var(--color-text-secondary)', marginBottom: '16px' }}>
+                                At Pro Construction, we don’t just build structures—we craft legacies. With years of expertise, cutting-edge innovation, and unwavering dedication, we transform blueprints into landmarks that stand the test of time. From sleek commercial spaces to dream homes, our team delivers quality, safety, and Pro-level craftsmanship in every project.
+                            </p>
+
+                            
                         </div>
 
-                        <p style={{ marginBottom: '30px', textAlign: 'justify' }}>
-                            Whether breaking ground on a new development or renovating existing spaces, we prioritize your vision, timeline, and budget. Our reputation is built on trust, transparency, and results that speak louder than words.
-                        </p>
+                        <div className="feature-col feature-col-image">
+                            <img
+                                src="/dist/assets/mainContent.jpg"
+                                alt="Construction site"
+                                onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.unsplash.com/photo-1505842465776-3d0f2b2afc9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'; }}
+                            />
+                        </div>
 
-                        <h3 style={{ fontWeight: '700', color: 'white', textAlign: 'center', fontSize: '24px', marginBottom: '20px', letterSpacing: '1px' }}>
-                            Build smarter. Build bolder. Build with Pro.
-                        </h3>
+                        <div className="feature-col feature-col-right">
+                            <div className="feature-right-inner">
+                                <p style={{ fontWeight: 600, fontSize: '20px', color: 'var(--color-text-primary)', marginBottom: '10px' }}>Why choose us?</p>
 
-                        <p style={{ textAlign: 'center', fontStyle: 'italic' }}>
-                            Ready to start your project? Let’s lay the foundation for success—together.<br />
-                            <span style={{ fontWeight: '600', color: 'white', display: 'block', marginTop: '10px', fontStyle: 'normal' }}>Pro Construction: Solid Futures, Built Today.</span>
-                        </p>
+                                <ul style={{ listStyle: 'none', padding: 0, margin: '8px 0 18px 0' }}>
+                                    <li style={{ marginBottom: '10px', color: 'var(--color-text-primary)' }}>✅ <strong>Pro Expertise:</strong> Licensed professionals committed to excellence.</li>
+                                    <li style={{ marginBottom: '10px', color: 'var(--color-text-primary)' }}>✅ <strong>End-to-End Solutions:</strong> Design, build, renovate—seamlessly.</li>
+                                </ul>
+
+                                <p style={{ color: 'var(--color-text-secondary)', marginBottom: '16px' }}>
+                                    Whether breaking ground on a new development or renovating existing spaces, we prioritize your vision, timeline, and budget. Our reputation is built on trust, transparency, and results that speak louder than words.
+                                </p>
+
+                                <h3 style={{ fontWeight: 700, color: 'var(--color-text-primary)', fontSize: '20px', marginTop: '8px' }}>Build smarter. Build bolder. Build with Pro.</h3>
+                                <p style={{ fontStyle: 'italic', color: 'var(--color-text-secondary)', marginTop: '10px' }}>Ready to start your project? Let’s lay the foundation for success—together.<br /><strong style={{ color: 'var(--color-text-primary)' }}>Pro Construction: Solid Futures, Built Today.</strong></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

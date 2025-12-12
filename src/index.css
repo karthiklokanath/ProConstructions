@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap');
+
+/* Light theme (default). Toggle the `dark` class on <html> to switch. */
 :root {
-  --color-bg-primary: #1e1e1e;
-  /* Dark background */
-  --color-bg-secondary: #252525;
-  /* Slightly lighter for cards/sections */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #999999;
+  --color-bg-primary: #ffffff;
+  /* Light background */
+  --color-bg-secondary: #f5f5f7;
+  /* Slightly darker for cards/sections */
+  --color-text-primary: #1e1e1e;
+  --color-text-secondary: #666666;
   /* Muted text */
-  --color-accent: #e9e9e9;
-  /* Light grey/white for hover */
-  --color-border: #333333;
+  --color-accent: #0f62fe;
+  /* Accent (blue) */
+  --color-border: #e6e6e6;
+
+  --nav-bg: rgba(255,255,255,0.95);
 
   --font-primary: 'Work Sans', sans-serif;
 
@@ -16,7 +21,16 @@
   /* Standard bootstrap-like container width */
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap');
+/* Dark theme overrides */
+.dark {
+  --color-bg-primary: #1e1e1e;
+  --color-bg-secondary: #252525;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #999999;
+  --color-accent: #e9e9e9;
+  --color-border: #333333;
+  --nav-bg: rgba(37,37,37,0.95);
+}
 
 *,
 *::before,
@@ -32,6 +46,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+  transition: background-color 220ms ease, color 220ms ease;
 }
 
 h1,
@@ -69,11 +84,11 @@ ul {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e1e1e;
+  background: var(--color-bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #444;
+  background: var(--color-border);
   border-radius: 4px;
 }
 
@@ -133,4 +148,106 @@ button:hover {
 
 .pan-bg {
   animation: panRight 30s linear infinite alternate;
+}
+
+/* Feature three-column section (adapts to theme variables) */
+.feature-section {
+  padding: 80px 0;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.feature-grid {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.feature-col {
+  box-sizing: border-box;
+}
+
+.feature-col-left {
+  flex: 0 0 28%;
+  text-align: left;
+  padding-left: 10px;
+  /* shift left a bit to sit closer to the viewport left edge on wide screens */
+  margin-left: -60px;
+}
+
+.feature-title {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -2px;
+  margin: 0 0 18px 0;
+  color: var(--color-text-primary);
+}
+
+.feature-divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-border);
+  margin: 12px 0 22px 0;
+}
+
+.feature-lead {
+  font-style: italic;
+  color: var(--color-text-secondary);
+  font-size: 18px;
+  max-width: 320px;
+}
+
+.feature-col-image {
+  flex: 0 0 34%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-col-image img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.feature-col-right {
+  flex: 1;
+  padding-right: 10px;
+  color: var(--color-text-secondary);
+  line-height: 1.9;
+}
+
+/* Right column inner wrapper: aligns content to the far right and allows it to use full available width */
+.feature-right-inner {
+  max-width: 620px; /* control readable line length while using full-screen space */
+  margin-left: auto; /* push to the right edge of the feature grid */
+  padding-left: 20px;
+  text-align: right; /* align content toward the right edge */
+}
+
+.feature-right-inner p, .feature-right-inner li {
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 900px) {
+  .feature-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .feature-col-left, .feature-col-image, .feature-col-right {
+    flex: 1 1 100%;
+    padding: 0 20px;
+    margin-left: 0; /* reset negative margin on mobile */
+  }
+
+  .feature-title {
+    font-size: 44px;
+    text-align: left;
+  }
 }
