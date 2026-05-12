@@ -104,25 +104,25 @@ const About = () => {
 
                     <ul style={iconListStyle}>
                         <li style={iconListItemStyle}>
-                            <span style={{ marginRight: '12px', fontSize: '24px' }}>🏠</span>
+                            <span style={{ marginRight: '12px', fontSize: '24px' }}></span>
                             <div>
                                 <strong style={{ color: 'white' }}>Residential:</strong> Custom-built homes tailored to modern lifestyles.
                             </div>
                         </li>
                         <li style={iconListItemStyle}>
-                            <span style={{ marginRight: '12px', fontSize: '24px' }}>🏢</span>
+                            <span style={{ marginRight: '12px', fontSize: '24px' }}></span>
                             <div>
                                 <strong style={{ color: 'white' }}>Commercial:</strong> Dynamic workspaces designed to inspire productivity.
                             </div>
                         </li>
                         <li style={iconListItemStyle}>
-                            <span style={{ marginRight: '12px', fontSize: '24px' }}>🔨</span>
+                            <span style={{ marginRight: '12px', fontSize: '24px' }}></span>
                             <div>
                                 <strong style={{ color: 'white' }}>Renovation:</strong> Breathing new life into existing structures.
                             </div>
                         </li>
                         <li style={iconListItemStyle}>
-                            <span style={{ marginRight: '12px', fontSize: '24px' }}>🏫</span>
+                            <span style={{ marginRight: '12px', fontSize: '24px' }}></span>
                             <div>
                                 <strong style={{ color: 'white' }}>Institutional:</strong> Building future-ready schools and community hubs.
                             </div>

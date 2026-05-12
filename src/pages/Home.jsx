@@ -270,7 +270,7 @@ const Home = () => {
         <div>
             {/* Hero Section */}
             <section style={heroStyle}>
-                <h1 style={headingStyle}>PRO CONSTRUCTIONS</h1>
+                <h5 style={headingStyle}>PRO CONSTRUCTIONS</h5>
             </section>
 
             {/* Intro section removed — content moved into the feature columns */}
@@ -327,7 +327,7 @@ const Home = () => {
             <section>
                 <div style={{ width: '100%' }}>
                     <CategoryLink
-                        title="Architecture"
+                        title="Architecture And Construction"
                         image="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
                         parallax={true}
                     />
@@ -341,23 +341,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Parallax Category Section (Landscape / Engineering) */}
-            <section>
-                <div style={{ width: '100%' }}>
-                    <CategoryLink
-                        title="Landscape"
-                        image="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-                        parallax={true}
-                    />
-                </div>
-                <div style={{ width: '100%' }}>
-                    <CategoryLink
-                        title="Engineering"
-                        image="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-                        parallax={true}
-                    />
-                </div>
-            </section>
+            
 
             {/* Recent Projects Preview */}
             <section style={{ ...sectionStyle, padding: '0' }}> {/* Full width grid often has no container padding */}

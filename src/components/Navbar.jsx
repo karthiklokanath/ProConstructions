@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../Images/logo.png';
+import logo from '../Images/logo.PNG';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -100,7 +100,7 @@ const Navbar = () => {
                 <Link to="/about" style={linkStyle}>About</Link>
                 <Link to="/services" style={linkStyle}>Services</Link>
                 <Link to="/our-work" style={linkStyle}>Our Work</Link>
-                <Link to="/news" style={linkStyle}>News</Link>
+                <Link to="/get-quote" style={linkStyle}>Get Quote</Link>
                 <Link to="/contact" style={linkStyle}>Contact</Link>
                 <button
                     onClick={() => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))}
