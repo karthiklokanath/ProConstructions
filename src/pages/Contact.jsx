@@ -65,13 +65,13 @@ const Contact = () => {
 
             {/* Main Content */}
             <section className="contact-section">
-                <div className="container">
-                    <div className="contact-layout" style={!showForm ? { gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' } : {}}>
+                <div className="container" style={{ maxWidth: '1280px' }}>
+                    <div className="contact-layout" style={!showForm ? { gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '30px', alignItems: 'stretch' } : {}}>
                         
                         {!showForm ? (
                             <>
                                 {/* Office Address Card */}
-                                <div className="contact-info-card" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '40px 30px', minHeight: '280px' }}>
+                                <div className="contact-info-card" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '40px 20px', minHeight: '280px' }}>
                                     <div className="contact-icon-wrapper" style={{ marginBottom: '15px' }}>
                                         <MapPin size={32} />
                                     </div>
@@ -84,9 +84,9 @@ const Contact = () => {
                                         </p>
                                     </div>
                                 </div>
-
+ 
                                 {/* Call & Email Card */}
-                                <div className="contact-info-card" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '40px 30px', minHeight: '280px' }}>
+                                <div className="contact-info-card" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '40px 20px', minHeight: '280px' }}>
                                     <div className="contact-icon-wrapper" style={{ marginBottom: '15px' }}>
                                         <Phone size={32} />
                                     </div>
@@ -98,20 +98,20 @@ const Contact = () => {
                                         <a href="tel:+919632509455" style={{ fontSize: '16px', display: 'block', margin: '4px 0' }}>
                                             +91-9632509455 <span style={{ fontSize: '14px', color: 'var(--color-text-secondary)' }}>(Vijay.M)</span>
                                         </a>
-                                        <a href="mailto:admin@proconstructionsandinteriors.com" style={{ fontSize: '15px', display: 'block', marginTop: '12px', wordBreak: 'break-all' }}>
+                                        <a href="mailto:admin@proconstructionsandinteriors.com" style={{ fontSize: '14px', display: 'block', marginTop: '12px', wordBreak: 'break-all' }}>
                                             admin@proconstructionsandinteriors.com
                                         </a>
                                     </div>
                                 </div>
-
+ 
                                 {/* Online Portals Card */}
-                                <div className="contact-info-card" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '40px 30px', minHeight: '280px' }}>
+                                <div className="contact-info-card" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '40px 20px', minHeight: '280px' }}>
                                     <div className="contact-icon-wrapper" style={{ marginBottom: '15px' }}>
                                         <Globe size={32} />
                                     </div>
                                     <div className="contact-card-content">
                                         <h3 style={{ fontSize: '20px', marginBottom: '12px' }}>Connect Online</h3>
-                                        <a href="https://www.proconstructionsandinteriors.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: '16px', display: 'block', margin: '6px 0', wordBreak: 'break-all' }}>
+                                        <a href="https://www.proconstructionsandinteriors.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: '14px', display: 'block', margin: '6px 0', wordBreak: 'break-all' }}>
                                             www.proconstructionsandinteriors.com
                                         </a>
                                         <a href="https://instagram.com/proconstructionss" target="_blank" rel="noopener noreferrer" style={{ fontSize: '16px', display: 'block', margin: '6px 0' }}>
