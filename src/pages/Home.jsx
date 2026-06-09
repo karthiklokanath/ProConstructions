@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+    const navigate = useNavigate();
     // --- Styles ---
     const heroStyle = {
         height: '100vh',
@@ -296,9 +298,9 @@ const Home = () => {
 
                         <div className="feature-col feature-col-image">
                             <img
-                                src="/dist/assets/mainContent.jpg"
+                                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                                 alt="Construction site"
-                                onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.unsplash.com/photo-1505842465776-3d0f2b2afc9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'; }}
+                                onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'; }}
                             />
                         </div>
 
@@ -381,17 +383,22 @@ const Home = () => {
             <section style={{ padding: '100px 0', backgroundColor: '#e9e9e9', color: '#333', textAlign: 'center' }}>
                 <div style={containerStyle}>
                     <h2 style={{ ...sectionTitleStyle, color: '#333' }}>Ready to start your project?</h2>
-                    <button style={{
-                        padding: '15px 40px',
-                        backgroundColor: '#333',
-                        color: 'white',
-                        border: 'none',
-                        textTransform: 'uppercase',
-                        letterSpacing: '2px',
-                        fontSize: '14px',
-                        fontWeight: '600',
-                        cursor: 'pointer'
-                    }}>Get in Touch</button>
+                    <button
+                        onClick={() => navigate('/contact')}
+                        style={{
+                            padding: '15px 40px',
+                            backgroundColor: '#333',
+                            color: 'white',
+                            border: 'none',
+                            textTransform: 'uppercase',
+                            letterSpacing: '2px',
+                            fontSize: '14px',
+                            fontWeight: '600',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        Get in Touch
+                    </button>
                 </div>
             </section>
         </div>

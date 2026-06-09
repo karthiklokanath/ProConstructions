@@ -99,8 +99,7 @@ const Navbar = () => {
                 <Link to="/" style={linkStyle} onClick={() => window.scrollTo(0, 0)}>Home</Link>
                 <Link to="/about" style={linkStyle}>About</Link>
                 <Link to="/services" style={linkStyle}>Services</Link>
-                <Link to="/our-work" style={linkStyle}>Our Work</Link>
-                <Link to="/get-quote" style={linkStyle}>Get Quote</Link>
+                {/* <Link to="/get-quote" style={linkStyle}>Get Quote</Link> */}
                 <Link to="/contact" style={linkStyle}>Contact</Link>
                 <button
                     onClick={() => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))}
