@@ -77,11 +77,14 @@ const Contact = () => {
                                     </div>
                                     <div className="contact-card-content">
                                         <h3 style={{ fontSize: '20px', marginBottom: '12px' }}>Our Office</h3>
-                                        <p style={{ fontSize: '16px', lineHeight: '1.6' }}>
+                                        <a href="https://maps.app.goo.gl/oXg2Y2HQwkEQewRt5" target="_blank" rel="noopener noreferrer" style={{ fontSize: '16px', lineHeight: '1.6', color: 'inherit', textDecoration: 'none', display: 'block' }}>
                                             2nd stage, 3rd cross, vinoba nagar,<br />
                                             near vikasa school,<br />
                                             shivamogga 577201
-                                        </p>
+                                        </a>
+                                        <a href="https://maps.app.goo.gl/oXg2Y2HQwkEQewRt5" target="_blank" rel="noopener noreferrer" style={{ fontSize: '14px', display: 'block', marginTop: '12px', color: '#f39c12', fontWeight: '500', textDecoration: 'none' }}>
+                                            View on Google Maps
+                                        </a>
                                     </div>
                                 </div>
  
@@ -131,11 +134,16 @@ const Contact = () => {
                                         </div>
                                         <div className="contact-card-content">
                                             <h3>Our Office</h3>
-                                            <p>
-                                                2nd stage, 3rd cross, vinoba nagar,<br />
-                                                near vikasa school,<br />
-                                                shivamogga 577201
-                                            </p>
+                                            <a href="https://maps.app.goo.gl/oXg2Y2HQwkEQewRt5" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none', display: 'block' }}>
+                                                <p style={{ margin: 0 }}>
+                                                    2nd stage, 3rd cross, vinoba nagar,<br />
+                                                    near vikasa school,<br />
+                                                    shivamogga 577201
+                                                </p>
+                                            </a>
+                                            <a href="https://maps.app.goo.gl/oXg2Y2HQwkEQewRt5" target="_blank" rel="noopener noreferrer" style={{ fontSize: '14px', display: 'block', marginTop: '8px', color: '#f39c12', fontWeight: '500', textDecoration: 'none' }}>
+                                                View on Google Maps
+                                            </a>
                                         </div>
                                     </div>
 
@@ -290,7 +298,7 @@ const Contact = () => {
                     <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--color-border)', boxShadow: '0 8px 30px rgba(0,0,0,0.05)' }}>
                         <iframe
                             title="Pro Constructions Location Map"
-                            src="https://maps.google.com/maps?q=13.9496514,75.5626231+(Pro+constructions+and+interiors)&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                            src="https://maps.google.com/maps?q=13.9496667,75.5626111+(Pro+constructions+and+interiors)&t=&z=17&ie=UTF8&iwloc=&output=embed"
                             width="100%"
                             height="450"
                             style={{ border: 0, display: 'block' }}

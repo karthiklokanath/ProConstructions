@@ -110,11 +110,41 @@ UX Hints
 - Use whitespace to group related content.
 - Use meaningful microcopy for buttons and form fields.
 
-If you want, I can:
-- Scaffold a starter UI with Tailwind + Framer Motion + shadcn/ui components.
-- Create `Button`, `Card`, and `Navbar` components as a starting kit.
+## Implemented Changes & Current State (Updated June 2026)
+
+### 1. Typography & Casing
+- Updated all occurrences of the company brand name to **`Pro Constructions`** (using proper camel/cased notation with spaces).
+- Styled brand text to use **`Century Gothic`** (`"Century Gothic", sans-serif`) in both the navbar and the home page hero heading.
+- Increased the hero heading size to `101px` (a total 30% increase) and adjusted spacing/margins to bring it down slightly below the logo.
+
+### 2. Logo Configuration
+- **Browser Tab (Favicon)**: Replaced the default Vite favicon with the official golden brand logo (`public/logo.png`), which is automatically served at the root `/logo.png`.
+- **Navbar**: Configured to display the official golden brand logo (`src/Images/logo.png`).
+- **Hero Section**: Configured to render the new landing logo (`Logo for landing .jpeg` copied to [landing_logo.jpeg](file:///D:/agy_cli_ws/src/Images/landing_logo.jpeg)) centered above the title text at `420px` height.
+
+### 3. Navigation & Route Adjustments
+- Removed the **"Our Work"** page and its links from the navigation bar ([Navbar.jsx](file:///D:/agy_cli_ws/src/components/Navbar.jsx)) and the application routes ([App.jsx](file:///D:/agy_cli_ws/src/App.jsx)).
+- Configured the **"Get in Touch"** button on the home page to navigate directly to the Contact page.
+
+### 4. Contact Page Redesign
+- Implemented a premium, responsive 3-column layout on the [Contact.jsx](file:///D:/agy_cli_ws/src/pages/Contact.jsx) page:
+  - **Our Office**: Features the physical address in Shivamogga with clickable links and a "View on Google Maps" link that redirects to [maps.app.goo.gl/oXg2Y2HQwkEQewRt5](https://maps.app.goo.gl/oXg2Y2HQwkEQewRt5) in a new tab.
+  - **Call & Email**: Contains phone links for Naveen.L (`+91-9611585497`) and Vijay.M (`+91-9632509455`), along with a direct `mailto:` link for `admin@proconstructionsandinteriors.com`.
+  - **Connect Online**: Contains direct links to the website and Instagram (`@proconstructionss`).
+- **Layout Adjustments**:
+  - The cards utilize `alignItems: 'stretch'` so they always remain equal in height.
+  - The internal padding was adjusted to `40px 20px` with slightly smaller font sizes for the long links to fit the content perfectly on all devices.
+  - The container's max-width is set to `1280px` for optimal viewing on desktop displays.
+- **Google Maps Integration**:
+  - Embedded an interactive Google Maps iframe pointing to the exact coordinates (`13.9496667, 75.5626111`) with the label `Pro constructions and interiors`.
+
+### 5. Repository Cleanup & Build
+- Created a [.gitignore](file:///D:/agy_cli_ws/.gitignore) file to properly ignore `node_modules/` and the built `dist/` directory.
+- Confirmed a successful production build with no warnings using `npm run build`.
+- Local preview server running at **`http://localhost:4173/`**.
 
 ---
 
-Created on: 2026-05-12
+Last Updated: 2026-06-09
 Author: Project UI guidelines (claude.md)
+
