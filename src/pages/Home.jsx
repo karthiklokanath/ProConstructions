@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import landingLogo from '../Images/landing_logo.jpeg';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Home = () => {
         backgroundPosition: 'center',
         color: 'white',
         textAlign: 'center',
-        paddingTop: '90px' // Offset for fixed navbar
+        paddingTop: '120px' // Offset for fixed navbar + adjusted upward
     };
 
     const subHeadingStyle = {
@@ -31,8 +32,9 @@ const Home = () => {
 
     const headingStyle = {
         fontFamily: '"Century Gothic", sans-serif',
-        fontSize: '70px', // Larger hero text
+        fontSize: '101px', // Another 10% increase
         fontWeight: '700',
+        marginTop: '60px', // Bring it down
         marginBottom: '20px',
         lineHeight: '1.1',
         letterSpacing: '-2px'
@@ -273,7 +275,8 @@ const Home = () => {
         <div>
             {/* Hero Section */}
             <section style={heroStyle}>
-                <h5 style={headingStyle}>ProConstructions</h5>
+                <img src={landingLogo} alt="Logo" style={{ height: '420px', width: 'auto', marginBottom: '24px' }} />
+                <h5 style={headingStyle}>Pro Constructions</h5>
             </section>
 
             {/* Intro section removed — content moved into the feature columns */}

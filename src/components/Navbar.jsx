@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../Images/logo.PNG';
+import logo from '../Images/logo.png';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -58,10 +58,10 @@ const Navbar = () => {
     };
 
     const logoStyle = {
+        fontFamily: '"Century Gothic", sans-serif',
         fontSize: '22px',
         fontWeight: '700',
         letterSpacing: '2px',
-        textTransform: 'uppercase',
         color: isScrolled ? 'var(--color-text-primary)' : 'rgba(255,255,255,0.92)',
         display: 'flex',
         alignItems: 'center',
@@ -93,7 +93,7 @@ const Navbar = () => {
         <nav style={navStyle}>
             <div className="logo-area" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <img src={logo} alt="Logo" style={{ height: '50px', width: 'auto' }} />
-                <Link to="/" style={logoStyle} onClick={() => window.scrollTo(0, 0)}>PRO CONSTRUCTIONS</Link>
+                <Link to="/" style={logoStyle} onClick={() => window.scrollTo(0, 0)}>Pro Constructions</Link>
             </div>
             <div style={linkContainerStyle}>
                 <Link to="/" style={linkStyle} onClick={() => window.scrollTo(0, 0)}>Home</Link>
