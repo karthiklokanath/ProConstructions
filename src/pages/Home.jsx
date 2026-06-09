@@ -30,6 +30,7 @@ const Home = () => {
     };
 
     const headingStyle = {
+        fontFamily: '"Century Gothic", sans-serif',
         fontSize: '70px', // Larger hero text
         fontWeight: '700',
         marginBottom: '20px',
@@ -272,7 +273,7 @@ const Home = () => {
         <div>
             {/* Hero Section */}
             <section style={heroStyle}>
-                <h5 style={headingStyle}>PRO CONSTRUCTIONS</h5>
+                <h5 style={headingStyle}>ProConstructions</h5>
             </section>
 
             {/* Intro section removed — content moved into the feature columns */}
