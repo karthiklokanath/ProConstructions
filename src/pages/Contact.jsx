@@ -290,7 +290,7 @@ const Contact = () => {
                     <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--color-border)', boxShadow: '0 8px 30px rgba(0,0,0,0.05)' }}>
                         <iframe
                             title="Pro Constructions Location Map"
-                            src="https://maps.google.com/maps?q=Pro%20constructions%20and%20interiors,%203rd%20Cross%20Rd,%20Vinoba%20Nagara,%20Shivamogga&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            src="https://maps.google.com/maps?q=13.9496514,75.5626231+(Pro+constructions+and+interiors)&t=&z=17&ie=UTF8&iwloc=&output=embed"
                             width="100%"
                             height="450"
                             style={{ border: 0, display: 'block' }}
