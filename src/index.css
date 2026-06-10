@@ -1067,10 +1067,23 @@ button {
   transform: scaleX(1);
 }
 
-.service-icon {
-  font-size: 40px;
-  margin-bottom: 20px;
-  display: block;
+.service-icon-wrapper {
+  background: var(--color-accent-muted);
+  border-radius: var(--radius-md);
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  margin-bottom: 24px;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.service-card:hover .service-icon-wrapper {
+  background: var(--color-accent);
+  color: #0a0a0a;
+  transform: scale(1.05);
 }
 
 .service-card h3 {
