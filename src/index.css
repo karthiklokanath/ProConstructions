@@ -486,12 +486,29 @@ button {
   padding: 0 24px;
 }
 
+.hero-logo-wrapper {
+  margin: 0 auto 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: heroFadeIn 1.2s var(--ease-out) both;
+}
+
 .hero-logo {
   height: 280px;
   width: auto;
-  margin: 0 auto 32px;
   filter: drop-shadow(0 8px 32px rgba(0,0,0,0.4));
-  animation: heroFadeIn 1.2s var(--ease-out) both;
+  animation: slowSway 10s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes slowSway {
+  0%, 100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
 }
 
 .hero-title {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import landingLogo from '../Images/landing_logo.jpeg';
+import logo from '../Images/logo.png';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -105,7 +105,9 @@ const Home = () => {
                 ></div>
                 <div className="hero-overlay"></div>
                 <div className="hero-content">
-                    <img src={landingLogo} alt="Pro Constructions Logo" className="hero-logo" />
+                    <div className="hero-logo-wrapper">
+                        <img src={logo} alt="Pro Constructions Logo" className="hero-logo" />
+                    </div>
                     <h1 className="hero-title">Pro Constructions</h1>
                 </div>
             </section>
