@@ -1,40 +1,52 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
-    const footerStyle = {
-        backgroundColor: '#1c1c1c',
-        color: '#666',
-        padding: '50px 0',
-        fontSize: '13px',
-        borderTop: '1px solid #252525'
-    };
-
-    const containerStyle = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        maxWidth: '1170px',
-        margin: '0 auto',
-        padding: '0 20px',
-        flexWrap: 'wrap'
-    };
-
-    const linkStyle = {
-        marginLeft: '20px',
-        color: '#666',
-        transition: 'color 0.3s'
-    };
-
     return (
-        <footer style={footerStyle}>
-            <div style={containerStyle}>
-                <div>
-                    &copy; {new Date().getFullYear()} Pro Constructions   |   All Rights Reserved
+        <footer className="footer">
+            <div className="container">
+                <div className="footer-grid">
+                    <div>
+                        <div className="footer-brand-text">Pro Constructions</div>
+                        <p className="footer-desc">
+                            Building excellence for over 8 years. Transforming visions into reality with precision and passion.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div className="footer-col-title">Quick Links</div>
+                        <Link to="/" className="footer-link" onClick={() => window.scrollTo(0, 0)}>Home</Link>
+                        <Link to="/about" className="footer-link" onClick={() => window.scrollTo(0, 0)}>About</Link>
+                        <Link to="/services" className="footer-link" onClick={() => window.scrollTo(0, 0)}>Services</Link>
+                        <Link to="/contact" className="footer-link" onClick={() => window.scrollTo(0, 0)}>Contact</Link>
+                    </div>
+
+                    <div>
+                        <div className="footer-col-title">Services</div>
+                        <span className="footer-link">Architecture</span>
+                        <span className="footer-link">Interior Design</span>
+                        <span className="footer-link">Renovation</span>
+                        <span className="footer-link">Engineering</span>
+                    </div>
+
+                    <div>
+                        <div className="footer-col-title">Follow Us</div>
+                        <div className="footer-social">
+                            <a
+                                href="https://instagram.com/proconstructionss"
+                                className="footer-social-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Instagram"
+                            >
+                                IG
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div className="social-links">
-                    {/* Pseudo-social links */}
-                    <a href="#" style={linkStyle}>FB</a>
-                    <a href="#" style={linkStyle}>TW</a>
-                    <a href="#" style={linkStyle}>IG</a>
-                    <a href="#" style={linkStyle}>YT</a>
+
+                <div className="footer-bottom">
+                    <span>&copy; {new Date().getFullYear()} Pro Constructions. All Rights Reserved.</span>
+                    <span>Crafted with precision</span>
                 </div>
             </div>
         </footer>

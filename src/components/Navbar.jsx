@@ -6,117 +6,104 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [theme, setTheme] = useState(() => {
         try {
-            return localStorage.getItem('theme') || 'light';
-        } catch (e) {
-            return 'light';
+            return localStorage.getItem('theme') || 'dark';
+        } catch {
+            return 'dark';
         }
     });
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
+        const handleScroll = () => setIsScrolled(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Apply theme class and persist preference
     useEffect(() => {
         try {
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
+            if (theme === 'light') {
+                document.documentElement.classList.add('light');
             } else {
-                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.remove('light');
             }
             localStorage.setItem('theme', theme);
-        } catch (e) {
-            // ignore (e.g., SSR or privacy settings)
+        } catch {
+            // ignore
         }
     }, [theme]);
 
-    const navStyle = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '0 40px',
-        height: '90px',
-        backgroundColor: isScrolled ? 'var(--nav-bg)' : 'transparent',
-        color: 'var(--color-text-primary)',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        transition: 'background-color 0.4s ease, height 0.4s ease',
-        borderBottom: isScrolled ? '1px solid var(--color-border)' : 'none'
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [location]);
+
+    const toggleTheme = () => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+
+    const handleLinkClick = () => {
+        window.scrollTo(0, 0);
+        setMobileMenuOpen(false);
     };
 
-    const logoStyle = {
-        fontFamily: '"Century Gothic", sans-serif',
-        fontSize: '22px',
-        fontWeight: '700',
-        letterSpacing: '2px',
-        color: isScrolled ? 'var(--color-text-primary)' : 'rgba(255,255,255,0.92)',
-        display: 'flex',
-        alignItems: 'center',
-        height: '100%'
-    };
-
-    const linkContainerStyle = {
-        display: 'flex',
-        alignItems: 'center',
-        height: '100%'
-    };
-
-    const linkStyle = {
-        marginLeft: '35px',
-        fontSize: '13px',
-        fontWeight: '500',
-        textTransform: 'uppercase',
-        letterSpacing: '1px',
-        color: isScrolled ? 'var(--color-text-primary)' : 'rgba(255,255,255,0.92)',
-        position: 'relative',
-        transition: 'color 0.3s'
-    };
-
-    // Helper to add hover effect logic if needed, or stick to simple CSS hover in a real app
-    // For inline styles, we might miss the ::after pseudo-element hover effects common in Avada
-    // We'll trust the global CSS a:hover or add a class if we were using a CSS file for this component.
+    const navLinks = [
+        { to: '/', label: 'Home' },
+        { to: '/about', label: 'About' },
+        { to: '/services', label: 'Services' },
+        { to: '/contact', label: 'Contact' },
+    ];
 
     return (
-        <nav style={navStyle}>
-            <div className="logo-area" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <img src={logo} alt="Logo" style={{ height: '50px', width: 'auto' }} />
-                <Link to="/" style={logoStyle} onClick={() => window.scrollTo(0, 0)}>Pro Constructions</Link>
-            </div>
-            <div style={linkContainerStyle}>
-                <Link to="/" style={linkStyle} onClick={() => window.scrollTo(0, 0)}>Home</Link>
-                <Link to="/about" style={linkStyle}>About</Link>
-                <Link to="/services" style={linkStyle}>Services</Link>
-                {/* <Link to="/get-quote" style={linkStyle}>Get Quote</Link> */}
-                <Link to="/contact" style={linkStyle}>Contact</Link>
+        <nav className={`navbar${isScrolled ? ' scrolled' : ''}`}>
+            <Link to="/" className="nav-brand" onClick={() => window.scrollTo(0, 0)}>
+                <img src={logo} alt="Pro Constructions Logo" className="nav-brand-logo" />
+                <span className="nav-brand-text">Pro Constructions</span>
+            </Link>
+
+            <div className="nav-links">
+                {navLinks.map(({ to, label }) => (
+                    <Link
+                        key={to}
+                        to={to}
+                        className={`nav-link${location.pathname === to ? ' active' : ''}`}
+                        onClick={() => window.scrollTo(0, 0)}
+                    >
+                        {label}
+                    </Link>
+                ))}
                 <button
-                    onClick={() => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))}
+                    className="theme-toggle"
+                    onClick={toggleTheme}
                     aria-label="Toggle theme"
                     title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-                    style={{
-                        marginLeft: '20px',
-                        padding: '8px 10px',
-                        background: 'transparent',
-                        border: isScrolled ? '1px solid var(--color-border)' : '1px solid rgba(255,255,255,0.6)',
-                        color: isScrolled ? 'var(--color-text-primary)' : 'rgba(255,255,255,0.92)',
-                        borderRadius: '6px',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px'
-                    }}
+                >
+                    {theme === 'dark' ? '☀️' : '🌙'}
+                </button>
+            </div>
+
+            <button
+                className={`mobile-menu-btn${mobileMenuOpen ? ' open' : ''}`}
+                onClick={() => setMobileMenuOpen(prev => !prev)}
+                aria-label="Toggle mobile menu"
+            >
+                <span />
+                <span />
+                <span />
+            </button>
+
+            <div className={`mobile-menu${mobileMenuOpen ? ' open' : ''}`}>
+                {navLinks.map(({ to, label }) => (
+                    <Link
+                        key={to}
+                        to={to}
+                        className={`nav-link${location.pathname === to ? ' active' : ''}`}
+                        onClick={handleLinkClick}
+                    >
+                        {label}
+                    </Link>
+                ))}
+                <button
+                    className="theme-toggle"
+                    onClick={toggleTheme}
+                    aria-label="Toggle theme"
                 >
                     {theme === 'dark' ? '☀️' : '🌙'}
                 </button>
