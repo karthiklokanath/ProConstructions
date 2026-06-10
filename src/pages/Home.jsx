@@ -1,76 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Check } from 'lucide-react';
 import logo from '../Images/logo.png';
 
 const Home = () => {
     const navigate = useNavigate();
 
-    const HorizontalScrollSection = () => {
-        const containerRef = React.useRef(null);
-        const trackRef = React.useRef(null);
 
-        React.useEffect(() => {
-            const handleScroll = () => {
-                const container = containerRef.current;
-                const track = trackRef.current;
-                if (!container || !track) return;
-
-                const containerTop = container.offsetTop;
-                const containerHeight = container.offsetHeight;
-                const viewportHeight = window.innerHeight;
-
-                const scrollDist = window.scrollY - containerTop;
-                let percentage = scrollDist / (containerHeight - viewportHeight);
-                percentage = Math.max(0, Math.min(1, percentage));
-
-                const maxTranslate = 300;
-                const translateX = -percentage * maxTranslate;
-
-                track.style.transform = `translateX(${translateX}vw)`;
-            };
-
-            window.addEventListener('scroll', handleScroll);
-            return () => window.removeEventListener('scroll', handleScroll);
-        }, []);
-
-        const categories = [
-            {
-                title: "Architecture",
-                image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-            },
-            {
-                title: "Interior Design",
-                image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-            },
-            {
-                title: "Landscape",
-                image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-            },
-            {
-                title: "Engineering",
-                image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-            }
-        ];
-
-        return (
-            <div ref={containerRef} style={{ height: '400vh', position: 'relative' }}>
-                <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-                    <div ref={trackRef} style={{ display: 'flex', height: '100%', width: '400vw', willChange: 'transform' }}>
-                        {categories.map((cat, index) => (
-                            <div key={index} className="hscroll-panel">
-                                <div
-                                    className="hscroll-panel-bg"
-                                    style={{ backgroundImage: `url(${cat.image})` }}
-                                ></div>
-                                <div className="hscroll-panel-overlay"></div>
-                                <h3 className="hscroll-panel-title">{cat.title}</h3>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        );
-    };
 
     const projects = [
         {
@@ -141,9 +77,15 @@ const Home = () => {
                             <div className="feature-right-inner">
                                 <p style={{ fontWeight: 600, fontSize: '20px', color: 'var(--color-text-primary)', marginBottom: '10px' }}>Why choose us?</p>
 
-                                <ul style={{ margin: '8px 0 18px 0' }}>
-                                    <li style={{ marginBottom: '10px', color: 'var(--color-text-primary)' }}>✅ <strong>Pro Expertise:</strong> Licensed professionals committed to excellence.</li>
-                                    <li style={{ marginBottom: '10px', color: 'var(--color-text-primary)' }}>✅ <strong>End-to-End Solutions:</strong> Design, build, renovate—seamlessly.</li>
+                                <ul style={{ margin: '8px 0 18px 0', listStyle: 'none', padding: 0 }}>
+                                    <li style={{ marginBottom: '12px', color: 'var(--color-text-primary)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                        <Check size={18} strokeWidth={2.5} style={{ color: 'var(--color-accent)', marginTop: '4px', flexShrink: 0 }} />
+                                        <span><strong>Pro Expertise:</strong> Licensed professionals committed to excellence.</span>
+                                    </li>
+                                    <li style={{ marginBottom: '12px', color: 'var(--color-text-primary)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                                        <Check size={18} strokeWidth={2.5} style={{ color: 'var(--color-accent)', marginTop: '4px', flexShrink: 0 }} />
+                                        <span><strong>End-to-End Solutions:</strong> Design, build, renovate—seamlessly.</span>
+                                    </li>
                                 </ul>
 
                                 <p style={{ color: 'var(--color-text-secondary)', marginBottom: '16px' }}>
@@ -177,10 +119,18 @@ const Home = () => {
                     <div className="category-overlay"></div>
                     <h3>Interior Design</h3>
                 </div>
+
+                <div className="category-card">
+                    <div
+                        className="category-image parallax-bg"
+                        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")' }}
+                    ></div>
+                    <div className="category-overlay"></div>
+                    <h3>Renovation & Remodeling</h3>
+                </div>
             </section>
 
-            {/* Horizontal Scroll Section */}
-            <HorizontalScrollSection />
+
 
             {/* Recent Projects Section */}
             <section className="section">
