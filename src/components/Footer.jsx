@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Instagram } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -38,7 +39,7 @@ const Footer = () => {
                                 rel="noopener noreferrer"
                                 aria-label="Instagram"
                             >
-                                IG
+                                <Instagram size={18} strokeWidth={1.5} />
                             </a>
                         </div>
                     </div>

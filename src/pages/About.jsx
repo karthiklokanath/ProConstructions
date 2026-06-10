@@ -1,3 +1,5 @@
+import { Home, Building2, Hammer, School } from 'lucide-react';
+
 const About = () => {
     return (
         <div>
@@ -29,25 +31,33 @@ const About = () => {
                         </p>
                         <ul className="about-icon-list">
                             <li>
-                                <span className="icon">🏠</span>
+                                <span className="icon">
+                                    <Home size={20} strokeWidth={1.5} style={{ color: 'var(--color-accent)' }} />
+                                </span>
                                 <div>
                                     <strong>Residential:</strong> Custom-built homes tailored to modern lifestyles.
                                 </div>
                             </li>
                             <li>
-                                <span className="icon">🏢</span>
+                                <span className="icon">
+                                    <Building2 size={20} strokeWidth={1.5} style={{ color: 'var(--color-accent)' }} />
+                                </span>
                                 <div>
                                     <strong>Commercial:</strong> Dynamic workspaces designed to inspire productivity.
                                 </div>
                             </li>
                             <li>
-                                <span className="icon">🔨</span>
+                                <span className="icon">
+                                    <Hammer size={20} strokeWidth={1.5} style={{ color: 'var(--color-accent)' }} />
+                                </span>
                                 <div>
                                     <strong>Renovation:</strong> Breathing new life into existing structures.
                                 </div>
                             </li>
                             <li>
-                                <span className="icon">🏫</span>
+                                <span className="icon">
+                                    <School size={20} strokeWidth={1.5} style={{ color: 'var(--color-accent)' }} />
+                                </span>
                                 <div>
                                     <strong>Institutional:</strong> Building future-ready schools and community hubs.
                                 </div>
