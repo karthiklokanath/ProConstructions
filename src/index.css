@@ -495,19 +495,20 @@ button {
 }
 
 .hero-logo {
-  height: 280px;
+  height: 336px;
   width: auto;
   filter: drop-shadow(0 8px 32px rgba(0,0,0,0.4));
-  animation: slowSway 10s ease-in-out infinite;
+  animation: slowSwayVertical 8s ease-in-out infinite;
   transform-origin: center;
+  transform-style: preserve-3d;
 }
 
-@keyframes slowSway {
+@keyframes slowSwayVertical {
   0%, 100% {
-    transform: rotate(-15deg);
+    transform: perspective(800px) rotateX(-20deg);
   }
   50% {
-    transform: rotate(15deg);
+    transform: perspective(800px) rotateX(20deg);
   }
 }
 
