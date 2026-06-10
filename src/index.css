@@ -498,17 +498,17 @@ button {
   height: 336px;
   width: auto;
   filter: drop-shadow(0 8px 32px rgba(0,0,0,0.4));
-  animation: slowSwayVertical 8s ease-in-out infinite;
+  animation: slowSwaySideways 8s ease-in-out infinite;
   transform-origin: center;
   transform-style: preserve-3d;
 }
 
-@keyframes slowSwayVertical {
+@keyframes slowSwaySideways {
   0%, 100% {
-    transform: perspective(800px) rotateX(-20deg);
+    transform: perspective(800px) rotateY(-20deg);
   }
   50% {
-    transform: perspective(800px) rotateX(20deg);
+    transform: perspective(800px) rotateY(20deg);
   }
 }
 
